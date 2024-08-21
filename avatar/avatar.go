@@ -4,13 +4,13 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
+	"github.com/YuanJey/wpsApi/pkg/api_req"
+	"github.com/YuanJey/wpsApi/pkg/api_resp"
+	"github.com/YuanJey/wpsApi/pkg/consts"
+	"github.com/YuanJey/wpsApi/pkg/http_client"
+	"github.com/YuanJey/wpsApi/pkg/log"
+	"github.com/YuanJey/wpsApi/pkg/sign"
 	"reflect"
-	"wpsApi/pkg/api_req"
-	"wpsApi/pkg/api_resp"
-	"wpsApi/pkg/consts"
-	"wpsApi/pkg/http_client"
-	"wpsApi/pkg/log"
-	"wpsApi/pkg/sign"
 )
 
 type Avatar struct {

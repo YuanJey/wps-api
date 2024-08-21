@@ -3,9 +3,9 @@ package log
 import (
 	"bufio"
 	"fmt"
+	"github.com/YuanJey/wpsApi/pkg/config"
 	"os"
 	"time"
-	"wpsApi/pkg/config"
 
 	nested "github.com/antonfisher/nested-logrus-formatter"
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"

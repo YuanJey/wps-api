@@ -1,12 +1,12 @@
 package wpsApi
 
 import (
-	"wpsApi/avatar"
-	"wpsApi/dept"
-	"wpsApi/pkg/api_resp"
-	"wpsApi/pkg/config"
-	"wpsApi/pkg/sign"
-	"wpsApi/user"
+	"github.com/YuanJey/wpsApi/avatar"
+	"github.com/YuanJey/wpsApi/dept"
+	"github.com/YuanJey/wpsApi/pkg/api_resp"
+	"github.com/YuanJey/wpsApi/pkg/config"
+	"github.com/YuanJey/wpsApi/pkg/sign"
+	"github.com/YuanJey/wpsApi/user"
 )
 
 type AllWpsUser struct {

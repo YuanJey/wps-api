@@ -3,14 +3,14 @@ package http_client
 import (
 	"encoding/json"
 	"errors"
+	"github.com/YuanJey/wpsApi/pkg/log"
+	"github.com/YuanJey/wpsApi/pkg/sign"
+	"github.com/YuanJey/wpsApi/pkg/utils"
 	"io"
 	"io/ioutil"
 	"net/http"
 	"strings"
 	"time"
-	"wpsApi/pkg/log"
-	"wpsApi/pkg/sign"
-	"wpsApi/pkg/utils"
 )
 
 func GetByte(operationID string, url string) ([]byte, error) {

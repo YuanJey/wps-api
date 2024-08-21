@@ -7,10 +7,10 @@
 package log
 
 import (
+	"github.com/YuanJey/wpsApi/pkg/utils"
 	"github.com/sirupsen/logrus"
 	"runtime"
 	"strings"
-	"wpsApi/pkg/utils"
 )
 
 type fileHook struct{}

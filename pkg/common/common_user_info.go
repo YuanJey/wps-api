@@ -1,8 +1,8 @@
 package common
 
 import (
+	"github.com/YuanJey/wpsApi/pkg/api_resp"
 	"strconv"
-	"wpsApi/pkg/api_resp"
 )
 
 type User struct {
