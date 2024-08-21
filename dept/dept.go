@@ -3,12 +3,12 @@ package dept
 import (
 	"errors"
 	"fmt"
-	"github.com/YuanJey/wpsApi/pkg/api_req"
-	"github.com/YuanJey/wpsApi/pkg/api_resp"
-	"github.com/YuanJey/wpsApi/pkg/consts"
-	"github.com/YuanJey/wpsApi/pkg/http_client"
-	"github.com/YuanJey/wpsApi/pkg/log"
-	"github.com/YuanJey/wpsApi/pkg/sign"
+	"github.com/YuanJey/wps-api/pkg/api_req"
+	"github.com/YuanJey/wps-api/pkg/api_resp"
+	"github.com/YuanJey/wps-api/pkg/consts"
+	"github.com/YuanJey/wps-api/pkg/http_client"
+	"github.com/YuanJey/wps-api/pkg/log"
+	"github.com/YuanJey/wps-api/pkg/sign"
 	"reflect"
 	"strconv"
 )

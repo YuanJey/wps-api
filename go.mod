@@ -1,4 +1,4 @@
-module github.com/YuanJey/wpsApi
+module github.com/YuanJey/wps-api
 
 go 1.22
 

@@ -3,7 +3,7 @@ package log
 import (
 	"bufio"
 	"fmt"
-	"github.com/YuanJey/wpsApi/pkg/config"
+	"github.com/YuanJey/wps-api/pkg/config"
 	"os"
 	"time"
 

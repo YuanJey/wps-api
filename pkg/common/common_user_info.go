@@ -1,7 +1,7 @@
 package common
 
 import (
-	"github.com/YuanJey/wpsApi/pkg/api_resp"
+	"github.com/YuanJey/wps-api/pkg/api_resp"
 	"strconv"
 )
 
