@@ -86,7 +86,7 @@ func unmarshalConfig(config interface{}, configName string) {
 		} else {
 			//本地
 			//bytes, err := os.ReadFile(fmt.Sprintf("./pkg/config/%s", configName))
-			bytes, err := os.ReadFile(fmt.Sprintf("../config/%s", configName))
+			bytes, err := os.ReadFile(fmt.Sprintf("./config/%s", configName))
 			if err != nil {
 				panic(err.Error() + configName)
 			}
