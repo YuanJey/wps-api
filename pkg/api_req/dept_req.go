@@ -34,7 +34,7 @@ type MoveDeptReq struct {
 	ToParentId string `json:"to_parent_id"`
 }
 type BatchDeleteDeptReq struct {
-	DeptIds []int `json:"dept_ids"`
+	DeptIds []string `json:"dept_ids"`
 }
 type BatchDeleteThirdDeptReq struct {
 	PlatformId string   `json:"platform_id"`
