@@ -39,7 +39,7 @@ type Member struct {
 	CompanyId         string        `json:"company_id"`
 	CompanyUid        string        `json:"company_uid"`
 	Ctime             int           `json:"ctime"`
-	DefDeptId         int           `json:"def_dept_id"`
+	DefDeptId         string        `json:"def_dept_id"`
 	DeptNum           int           `json:"dept_num"`
 	Email             string        `json:"email"`
 	EmployeeId        string        `json:"employee_id"`
