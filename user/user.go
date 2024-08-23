@@ -21,14 +21,14 @@ type ApiUser interface {
 	//GetCompanyMembersPath
 	GetCompanyMembers(operationID string, accountId string) (*api_resp.GetCompanyMembersResp, error)
 	// BatchGetCompanyMembers 批量获取企业成员
-	BatchGetCompanyMembers(operationID string, accountList []int) (*api_resp.BatchGetCompanyMembersResp, error)
+	BatchGetCompanyMembers(operationID string, accountList []string) (*api_resp.BatchGetCompanyMembersResp, error)
 	// BatchGetCompanyMembersByThirdId 根据第三方id批量获取企业成员
 	BatchGetCompanyMembersByThirdId(operationID string, req api_req.BatchGetCompanyMembersByThirdIdReq) (*api_resp.BatchGetCompanyMembersResp, error)
 
 	// BatchDisableCompanyMembers 批量禁用企业成员
-	BatchDisableCompanyMembers(operationID string, accountList []int) (*api_resp.CommonResp, error)
+	BatchDisableCompanyMembers(operationID string, accountList []string) (*api_resp.CommonResp, error)
 	// BatchEnableCompanyMembers 批量启用企业成员
-	BatchEnableCompanyMembers(operationID string, accountList []int) (*api_resp.CommonResp, error)
+	BatchEnableCompanyMembers(operationID string, accountList []string) (*api_resp.CommonResp, error)
 
 	//UpdateThirdMemberInfo 根据第三方union-id修改企业成员信息
 	UpdateThirdMemberInfo(operationID string, req api_req.UpdateMemberInfoReq) (*api_resp.CommonResp, error)
@@ -109,7 +109,7 @@ func (u *User) GetCompanyMembers(operationID string, accountId string) (*api_res
 	}
 	return &resp, nil
 }
-func (u *User) BatchGetCompanyMembers(operationID string, accountList []int) (*api_resp.BatchGetCompanyMembersResp, error) {
+func (u *User) BatchGetCompanyMembers(operationID string, accountList []string) (*api_resp.BatchGetCompanyMembersResp, error) {
 	req := api_req.BatchGetCompanyMembersReq{AccountIds: accountList}
 	resp := api_resp.BatchGetCompanyMembersResp{}
 	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.BatchGetCompanyMembersPath, u.companyId), req, &resp, *u.sign)
@@ -130,7 +130,7 @@ func (u *User) BatchGetCompanyMembersByThirdId(operationID string, req api_req.B
 	return &resp, nil
 }
 
-func (u *User) BatchDisableCompanyMembers(operationID string, accountList []int) (*api_resp.CommonResp, error) {
+func (u *User) BatchDisableCompanyMembers(operationID string, accountList []string) (*api_resp.CommonResp, error) {
 	req := api_req.BatchDisableCompanyMembersReq{AccountIds: accountList}
 	resp := api_resp.CommonResp{}
 	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.BatchDisableCompanyMembersPath, u.companyId), req, &resp, *u.sign)
@@ -141,7 +141,7 @@ func (u *User) BatchDisableCompanyMembers(operationID string, accountList []int)
 	return &resp, nil
 }
 
-func (u *User) BatchEnableCompanyMembers(operationID string, accountList []int) (*api_resp.CommonResp, error) {
+func (u *User) BatchEnableCompanyMembers(operationID string, accountList []string) (*api_resp.CommonResp, error) {
 	req := api_req.BatchEnableCompanyMembersReq{AccountIds: accountList}
 	resp := api_resp.CommonResp{}
 	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.BatchEnableCompanyMembersPath, u.companyId), req, &resp, *u.sign)

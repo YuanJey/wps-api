@@ -3,13 +3,10 @@ package api_req
 import "github.com/YuanJey/wps-api/pkg/api_resp"
 
 type CreateCompaniesMembersReq struct {
-	Account   string `json:"account"`
-	Avatar    string `json:"avatar"`
-	DefDeptId int    `json:"def_dept_id"`
-	DeptIds   []struct {
-		DeptId int `json:"dept_id"`
-		Weight int `json:"weight"`
-	} `json:"dept_ids"`
+	Account          string                 `json:"account"`
+	Avatar           string                 `json:"avatar"`
+	DefDeptId        int                    `json:"def_dept_id"`
+	DeptIds          []DeptIds              `json:"dept_ids"`
 	Email            string                 `json:"email"`
 	EmployeeId       string                 `json:"employee_id"`
 	EmploymentStatus string                 `json:"employment_status"`
@@ -25,15 +22,18 @@ type CreateCompaniesMembersReq struct {
 	Title            string                 `json:"title"`
 	CustomFields     []api_resp.CustomField `json:"custom_fields"`
 }
-
+type DeptIds struct {
+	DeptId string `json:"dept_id"`
+	Weight int    `json:"weight"`
+}
 type BatchGetCompanyMembersReq struct {
-	AccountIds []int `json:"account_ids"`
+	AccountIds []string `json:"account_ids"`
 }
 type BatchDisableCompanyMembersReq struct {
-	AccountIds []int `json:"account_ids"`
+	AccountIds []string `json:"account_ids"`
 }
 type BatchEnableCompanyMembersReq struct {
-	AccountIds []int `json:"account_ids"`
+	AccountIds []string `json:"account_ids"`
 }
 type BatchGetCompanyMembersByThirdIdReq struct {
 	PlatformId string   `json:"platform_id"`
@@ -54,12 +54,12 @@ type UpdateMemberInfoReq struct {
 	Avatar           string                 `json:"avatar"`
 }
 type ChangeCompanyMembersDeptReq struct {
-	AccountId  int       `json:"account_id"`
-	DefDeptId  int       `json:"def_dept_id"`
+	AccountId  string    `json:"account_id"`
+	DefDeptId  string    `json:"def_dept_id"`
 	NewDeptIds []NewDept `json:"new_dept_ids"`
-	OldDeptIds []int     `json:"old_dept_ids"`
+	OldDeptIds []string  `json:"old_dept_ids"`
 }
 type NewDept struct {
-	DeptId int `json:"dept_id"`
-	Weight int `json:"weight"`
+	DeptId string `json:"dept_id"`
+	Weight int    `json:"weight"`
 }
