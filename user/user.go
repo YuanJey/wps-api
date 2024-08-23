@@ -6,6 +6,7 @@ import (
 	"github.com/YuanJey/wps-api/dept"
 	"github.com/YuanJey/wps-api/pkg/api_req"
 	"github.com/YuanJey/wps-api/pkg/api_resp"
+	"github.com/YuanJey/wps-api/pkg/config"
 	"github.com/YuanJey/wps-api/pkg/consts"
 	"github.com/YuanJey/wps-api/pkg/http_client"
 	"github.com/YuanJey/wps-api/pkg/log"
@@ -31,7 +32,7 @@ type ApiUser interface {
 	BatchEnableCompanyMembers(operationID string, accountList []string) (*api_resp.CommonResp, error)
 
 	//UpdateThirdMemberInfo 根据第三方union-id修改企业成员信息
-	UpdateThirdMemberInfo(operationID string, req api_req.UpdateMemberInfoReq) (*api_resp.CommonResp, error)
+	UpdateThirdMemberInfo(operationID, thirdUnionId string, req api_req.UpdateMemberInfoReq) (*api_resp.CommonResp, error)
 	// UpdateMemberInfo 修改企业成员信息
 	UpdateMemberInfo(operationID string, accountId string, req api_req.UpdateMemberInfoReq) (*api_resp.CommonResp, error)
 	// ChangeCompanyMembersDept 调整企业账户的归属部门
@@ -152,9 +153,9 @@ func (u *User) BatchEnableCompanyMembers(operationID string, accountList []strin
 	return &resp, nil
 }
 
-func (u *User) UpdateThirdMemberInfo(operationID string, req api_req.UpdateMemberInfoReq) (*api_resp.CommonResp, error) {
+func (u *User) UpdateThirdMemberInfo(operationID, thirdUnionId string, req api_req.UpdateMemberInfoReq) (*api_resp.CommonResp, error) {
 	resp := api_resp.CommonResp{}
-	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.UpdateThirdMemberInfoPath, u.companyId), req, &resp, *u.sign)
+	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.UpdateThirdMemberInfoPath, u.companyId, config.Config.WPS.PlatformId, thirdUnionId), req, &resp, *u.sign)
 	if err != nil {
 		log.Error(operationID, "UpdateThirdMemberInfo err ", err.Error())
 		return nil, err
