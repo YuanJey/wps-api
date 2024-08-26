@@ -23,7 +23,7 @@ const (
 
 	// ChangeCompanyMembersDeptPath 调整企业账户的归属部门
 	ChangeCompanyMembersDeptPath = "/org/dev/v1/companies/%s/change_account_dept"
-	GetDepartmentMembersPath     = "/org/dev/v1/companies/%s/depts/%s/members"
+	GetDepartmentMembersPath     = "/org/dev/v1/companies/%s/depts/%s/members?offset=%s&limit=%s"
 )
 
 const (
