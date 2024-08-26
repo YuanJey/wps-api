@@ -5,7 +5,7 @@ import "github.com/YuanJey/wps-api/pkg/api_resp"
 type CreateCompaniesMembersReq struct {
 	Account          string                 `json:"account"`
 	Avatar           string                 `json:"avatar,omitempty"`
-	DefDeptId        int                    `json:"def_dept_id"`
+	DefDeptId        string                 `json:"def_dept_id"`
 	DeptIds          []DeptIds              `json:"dept_ids"`
 	Email            string                 `json:"email,omitempty"`
 	EmployeeId       string                 `json:"employee_id,omitempty"`
