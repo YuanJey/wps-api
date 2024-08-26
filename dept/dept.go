@@ -31,6 +31,7 @@ type ApiDept interface {
 	MoveDept(operationID string, req api_req.MoveDeptReq) (*api_resp.CommonResp, error)
 	BatchDeleteDept(operationID string, req api_req.BatchDeleteDeptReq) (*api_resp.CommonResp, error)
 	BatchDeleteThirdDept(operationID string, req api_req.BatchDeleteThirdDeptReq) (*api_resp.CommonResp, error)
+	BatchBindThirdDept(operationID string, req api_req.BatchBindThirdDeptReq) (*api_resp.CommonResp, error)
 }
 type Dept struct {
 	addr      string
@@ -220,6 +221,17 @@ func (d *Dept) getAllDepartment(operationID string, depts []api_resp.Dept) ([]ap
 		alldeptList = append(alldeptList, department...)
 	}
 	return alldeptList, nil
+}
+
+// BatchBindThirdDept
+func (d *Dept) BatchBindThirdDept(operationID string, req api_req.BatchBindThirdDeptReq) (*api_resp.CommonResp, error) {
+	commonResp := api_resp.CommonResp{}
+	err := http_client.Post(operationID, fmt.Sprintf(d.addr+consts.BatchBindThirdDeptPath, d.companyId), req, &commonResp, *d.sign)
+	if err != nil {
+		log.Error(operationID, "BatchBindThirdDept err ", err.Error())
+		return nil, err
+	}
+	return &commonResp, nil
 }
 func (d *Dept) getSubDept(operationID string, deptId string) ([]api_resp.Dept, error) {
 	var deptList []api_resp.Dept

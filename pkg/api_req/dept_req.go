@@ -40,3 +40,11 @@ type BatchDeleteThirdDeptReq struct {
 	PlatformId string   `json:"platform_id"`
 	UnionIds   []string `json:"union_ids"`
 }
+type BatchBindThirdDeptReq struct {
+	Itmes      []BatchBindThirdDeptItem `json:"itmes"`
+	PlatformId string                   `json:"platform_id"`
+}
+type BatchBindThirdDeptItem struct {
+	DeptId  string `json:"dept_id"`
+	UnionId string `json:"union_id"`
+}

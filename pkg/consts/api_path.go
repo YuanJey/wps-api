@@ -52,6 +52,8 @@ const (
 	BatchDeleteDeptPath = "/org/dev/v1/delete/companies/%s/depts"
 	// BatchDeleteThirdDeptPath 根据三方union-id批量删除部门
 	BatchDeleteThirdDeptPath = "/org/dev/v1/delete/batch/companies/%s/thirddepts"
+	///org/dev/v1/batch/companies/{company_id}/bind/thirddepts
+	BatchBindThirdDeptPath = "/org/dev/v1/batch/companies/%s/bind/thirddepts"
 )
 const (
 	AvatarUploadPath = "/avatar/dev/v1/companies/%s/custom_avatar"
