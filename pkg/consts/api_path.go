@@ -17,7 +17,7 @@ const (
 	BatchEnableCompanyMembersPath = "/org/dev/v1/batch/companies/%s/members/enable"
 
 	// UpdateThirdMemberInfoPath 根据第三方union-id修改企业成员信息
-	UpdateThirdMemberInfoPath = "/o/org/dev/v1/companies/%s/thirdusers?third_platform_id=%s&third_union_id=%s"
+	UpdateThirdMemberInfoPath = "/org/dev/v1/companies/%s/thirdusers?third_platform_id=%s&third_union_id=%s"
 	// UpdateMemberInfoPath 修改企业成员信息
 	UpdateMemberInfoPath = "/org/dev/v1/companies/%s/members/%s"
 
