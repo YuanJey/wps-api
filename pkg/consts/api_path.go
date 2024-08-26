@@ -30,7 +30,7 @@ const (
 	// GetRootDeptPath 获取根部门
 	GetRootDeptPath = "/org/dev/v1/companies/%s/depts/root"
 	// GetDeptInfoByThirdId 根据三方union-id获取部门信息
-	GetDeptInfoByThirdId = "/org/dev/v1/companies/%s/thirddepts?third_platform_id=1&third_union_id=&s"
+	GetDeptInfoByThirdId = "/org/dev/v1/companies/%s/thirddepts?third_platform_id=1&third_union_id=%s"
 	// BatchGetThirdDeptListPath 根据三方union-id批量获取部门信息
 	BatchGetThirdDeptListPath = "/org/dev/v1/companies/%s/thirddepts"
 	// GetDeptListPath 批量获取部门信息
