@@ -63,3 +63,7 @@ type NewDept struct {
 	DeptId string `json:"dept_id"`
 	Weight int    `json:"weight"`
 }
+
+type DeleteBatchCompanyMembersReq struct {
+	AccountIds []string `json:"account_ids"`
+}

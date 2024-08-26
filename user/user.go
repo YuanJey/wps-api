@@ -39,6 +39,8 @@ type ApiUser interface {
 	ChangeCompanyMembersDept(operationID string, req api_req.ChangeCompanyMembersDeptReq) (*api_resp.CommonResp, error)
 	// GetDepartmentMembersPath 获取部门成员列表
 	GetDepartmentMembersPath(operationID string, deptId, offset, limit string) (*api_resp.GetDepartmentMembersResp, error)
+	// BatchDeleteCompanyMembersPath 批量删除用户
+	BatchDeleteCompanyMembers(operationID string, accounts []string) (*api_resp.CommonResp, error)
 }
 type User struct {
 	addr      string
@@ -168,6 +170,18 @@ func (u *User) UpdateMemberInfo(operationID string, accountId string, req api_re
 	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.UpdateMemberInfoPath, u.companyId, accountId), req, &resp, *u.sign)
 	if err != nil {
 		log.Error(operationID, "UpdateMemberInfo err ", err.Error())
+		return nil, err
+	}
+	return &resp, nil
+}
+
+// BatchDeleteCompanyMembersPath
+func (u *User) BatchDeleteCompanyMembers(operationID string, accounts []string) (*api_resp.CommonResp, error) {
+	req := api_req.DeleteBatchCompanyMembersReq{AccountIds: accounts}
+	resp := api_resp.CommonResp{}
+	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.DeleteBatchCompanyMembersPath, u.companyId), req, &resp, *u.sign)
+	if err != nil {
+		log.Error(operationID, "BatchDeleteCompanyMembersPath err ", err.Error())
 		return nil, err
 	}
 	return &resp, nil
