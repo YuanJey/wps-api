@@ -7,12 +7,12 @@ type CommonResp struct {
 }
 type Failure struct {
 	Code   string `json:"code"`
-	DeptId int    `json:"dept_id"`
+	DeptId string `json:"dept_id"`
 	Result string `json:"resutl"`
 }
 type Success struct {
 	Code   string `json:"code"`
-	DeptId int    `json:"dept_id"`
+	DeptId string `json:"dept_id"`
 	Result string `json:"resutl"`
 }
 type Dept struct {
