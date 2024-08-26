@@ -32,6 +32,7 @@ type Dept struct {
 	AbsPath         string `json:"abs_path"`
 	IdPath          string `json:"id_path"`
 	Source          string `json:"source"`
+	Synced          bool   `json:"synced"`
 }
 type Member struct {
 	AccountId         string        `json:"account_id"`
@@ -63,6 +64,7 @@ type Member struct {
 	WorkPlace         string        `json:"work_place"`
 	CustomFields      []CustomField `json:"custom_fields"`
 	DeptList          []Dept        `json:"depts"`
+	Synced            bool          `json:"synced"`
 }
 
 type CustomField struct {
