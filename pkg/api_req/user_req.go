@@ -4,23 +4,23 @@ import "github.com/YuanJey/wps-api/pkg/api_resp"
 
 type CreateCompaniesMembersReq struct {
 	Account          string                 `json:"account"`
-	Avatar           string                 `json:"avatar"`
+	Avatar           string                 `json:"avatar,omitempty"`
 	DefDeptId        int                    `json:"def_dept_id"`
 	DeptIds          []DeptIds              `json:"dept_ids"`
-	Email            string                 `json:"email"`
+	Email            string                 `json:"email,omitempty"`
 	EmployeeId       string                 `json:"employee_id"`
-	EmploymentStatus string                 `json:"employment_status"`
-	EmploymentType   string                 `json:"employment_type"`
-	Gender           string                 `json:"gender"`
-	MobilePhone      string                 `json:"mobile_phone"`
+	EmploymentStatus string                 `json:"employment_status,omitempty"`
+	EmploymentType   string                 `json:"employment_type,omitempty"`
+	Gender           string                 `json:"gender,omitempty"`
+	MobilePhone      string                 `json:"mobile_phone,omitempty"`
 	NickName         string                 `json:"nick_name"`
 	Password         string                 `json:"password"`
 	Source           string                 `json:"source"`
 	Telephone        string                 `json:"telephone"`
 	ThirdPlatformId  string                 `json:"third_platform_id"`
 	ThirdUnionId     string                 `json:"third_union_id"`
-	Title            string                 `json:"title"`
-	CustomFields     []api_resp.CustomField `json:"custom_fields"`
+	Title            string                 `json:"title,omitempty"`
+	CustomFields     []api_resp.CustomField `json:"custom_fields,omitempty"`
 }
 type DeptIds struct {
 	DeptId string `json:"dept_id"`
