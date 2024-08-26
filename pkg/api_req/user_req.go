@@ -41,17 +41,17 @@ type BatchGetCompanyMembersByThirdIdReq struct {
 }
 
 type UpdateMemberInfoReq struct {
-	Email            string                 `json:"email"`
-	EmployeeId       string                 `json:"employee_id"`
-	EmploymentStatus string                 `json:"employment_status"`
-	EmploymentType   string                 `json:"employment_type"`
-	Gender           string                 `json:"gender"`
-	MobilePhone      string                 `json:"mobile_phone"`
+	Email            string                 `json:"email,omitempty"`
+	EmployeeId       string                 `json:"employee_id,omitempty"`
+	EmploymentStatus string                 `json:"employment_status,omitempty"`
+	EmploymentType   string                 `json:"employment_type,omitempty"`
+	Gender           string                 `json:"gender,omitempty"`
+	MobilePhone      string                 `json:"mobile_phone,omitempty"`
 	NickName         string                 `json:"nick_name"`
-	Telephone        string                 `json:"telephone"`
-	Title            string                 `json:"title"`
-	CustomFields     []api_resp.CustomField `json:"custom_fields"`
-	Avatar           string                 `json:"avatar"`
+	Telephone        string                 `json:"telephone,omitempty"`
+	Title            string                 `json:"title,omitempty"`
+	CustomFields     []api_resp.CustomField `json:"custom_fields,omitempty"`
+	Avatar           string                 `json:"avatar,omitempty"`
 }
 type ChangeCompanyMembersDeptReq struct {
 	AccountId  string    `json:"account_id"`
