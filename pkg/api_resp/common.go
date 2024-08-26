@@ -48,7 +48,7 @@ type Member struct {
 	EmploymentStatus  string        `json:"employment_status"`
 	Gender            string        `json:"gender"`
 	IsInnerSuperAdmin bool          `json:"is_inner_super_admin"`
-	Leader            int           `json:"leader"`
+	Leader            string        `json:"leader"`
 	LoginName         string        `json:"login_name"`
 	MobilePhone       string        `json:"mobile_phone"`
 	Mtime             int           `json:"mtime"`
