@@ -8,15 +8,15 @@ type CreateCompaniesMembersReq struct {
 	DefDeptId        int                    `json:"def_dept_id"`
 	DeptIds          []DeptIds              `json:"dept_ids"`
 	Email            string                 `json:"email,omitempty"`
-	EmployeeId       string                 `json:"employee_id"`
+	EmployeeId       string                 `json:"employee_id,omitempty"`
 	EmploymentStatus string                 `json:"employment_status,omitempty"`
 	EmploymentType   string                 `json:"employment_type,omitempty"`
 	Gender           string                 `json:"gender,omitempty"`
 	MobilePhone      string                 `json:"mobile_phone,omitempty"`
 	NickName         string                 `json:"nick_name"`
-	Password         string                 `json:"password"`
+	Password         string                 `json:"password,omitempty"`
 	Source           string                 `json:"source"`
-	Telephone        string                 `json:"telephone"`
+	Telephone        string                 `json:"telephone,omitempty"`
 	ThirdPlatformId  string                 `json:"third_platform_id"`
 	ThirdUnionId     string                 `json:"third_union_id"`
 	Title            string                 `json:"title,omitempty"`
