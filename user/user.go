@@ -161,7 +161,7 @@ func (u *User) BatchEnableCompanyMembers(operationID string, accountList []strin
 
 func (u *User) BatchDisableThirdMembers(operationID string, req api_req.BatchDisableThirdMembersReq) (*api_resp.CommonResp, error) {
 	resp := api_resp.CommonResp{}
-	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.BatchEnableCompanyMembersPath, u.companyId), req, &resp, *u.sign)
+	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.BatchDisableThirdMembersPath, u.companyId), req, &resp, *u.sign)
 	if err != nil {
 		log.Error(operationID, "BatchDisableThirdMembers err ", err.Error())
 		return nil, err
@@ -170,7 +170,7 @@ func (u *User) BatchDisableThirdMembers(operationID string, req api_req.BatchDis
 }
 func (u *User) BatchEnableThirdMembers(operationID string, req api_req.BatchEnableThirdMembersReq) (*api_resp.CommonResp, error) {
 	resp := api_resp.CommonResp{}
-	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.BatchEnableCompanyMembersPath, u.companyId), req, &resp, *u.sign)
+	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.BatchEnableThirdMembersPath, u.companyId), req, &resp, *u.sign)
 	if err != nil {
 		log.Error(operationID, "BatchEnableThirdMembers err ", err.Error())
 		return nil, err
