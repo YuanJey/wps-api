@@ -125,7 +125,7 @@ func (u *User) BatchGetCompanyMembers(operationID string, accountList []string) 
 
 func (u *User) BatchGetCompanyMembersByThirdId(operationID string, req api_req.BatchGetCompanyMembersByThirdIdReq) (*api_resp.BatchGetCompanyMembersResp, error) {
 	resp := api_resp.BatchGetCompanyMembersResp{}
-	err := http_client.Get(operationID, fmt.Sprintf(u.addr+consts.BatchGetCompanyMembersByThirdIdPath, u.companyId), req, &resp, *u.sign)
+	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.BatchGetCompanyMembersByThirdIdPath, u.companyId), req, &resp, *u.sign)
 	if err != nil {
 		log.Error(operationID, "BatchGetCompanyMembersByThirdId err ", err.Error())
 		return nil, err
