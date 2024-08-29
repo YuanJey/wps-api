@@ -221,13 +221,20 @@ func (u *User) GetAllUser(operationID string, allDept *dept.AllWpsDept) (*AllWps
 	for id := range allDept.WidDeptList {
 		users, err := u.getDeptUsers(operationID, id)
 		if err != nil {
+			log.Error(operationID, "getDeptUsers err ", err.Error())
 			return nil, err
 		}
 		allUser = append(allUser, users...)
 	}
+	//users, err := u.getDeptUsers(operationID, allDept.RootDept.Id)
+	//if err != nil {
+	//	return nil, err
+	//}
+	//allUser = append(allUser, users...)
 	wu := make(map[string]*api_resp.Member)
 	tu := make(map[string]*api_resp.Member)
 	for i := range allUser {
+		log.Info(operationID, "user ", allUser[i])
 		tu[allUser[i].ThirdUnionId] = &allUser[i]
 		wu[allUser[i].AccountId] = &allUser[i]
 	}
