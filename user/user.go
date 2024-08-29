@@ -11,6 +11,7 @@ import (
 	"github.com/YuanJey/wps-api/pkg/http_client"
 	"github.com/YuanJey/wps-api/pkg/log"
 	"github.com/YuanJey/wps-api/pkg/sign"
+	"github.com/YuanJey/wps-api/pkg/utils"
 	"reflect"
 	"strconv"
 )
@@ -252,7 +253,17 @@ func (u *User) getDeptUsers(operationID string, deptId string) ([]api_resp.Membe
 			return deptList, err
 		}
 		page++
-		deptList = append(deptList, list.Data.DeptMembers...)
+		//var temp []api_resp.Member
+		for i := range list.Data.DeptMembers {
+			member := api_resp.Member{}
+			if err := utils.CopyStructFields(&member, list.Data.DeptMembers[i]); err != nil {
+				log.Error(operationID, "CopyStructFields failed ", err.Error())
+				continue
+			}
+			//temp = append(temp, member)
+			deptList = append(deptList, member)
+		}
+		//deptList = append(deptList, temp...)
 		if len(list.Data.DeptMembers) < size {
 			return deptList, nil
 		}
