@@ -67,3 +67,11 @@ type NewDept struct {
 type DeleteBatchCompanyMembersReq struct {
 	AccountIds []string `json:"account_ids"`
 }
+type BatchDisableThirdMembersReq struct {
+	PlatformId string   `json:"platform_id"`
+	UnionIds   []string `json:"union_ids"`
+}
+type BatchEnableThirdMembersReq struct {
+	PlatformId string   `json:"platform_id"`
+	UnionIds   []string `json:"union_ids"`
+}

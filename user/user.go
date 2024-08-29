@@ -41,6 +41,10 @@ type ApiUser interface {
 	GetDepartmentMembersPath(operationID string, deptId, offset, limit string) (*api_resp.GetDepartmentMembersResp, error)
 	// BatchDeleteCompanyMembersPath 批量删除用户
 	BatchDeleteCompanyMembers(operationID string, accounts []string) (*api_resp.CommonResp, error)
+	//BatchDisableThirdMembers
+	BatchDisableThirdMembers(operationID string, req api_req.BatchDisableThirdMembersReq) (*api_resp.CommonResp, error)
+	//BatchEnableThirdMembers
+	BatchEnableThirdMembers(operationID string, req api_req.BatchEnableThirdMembersReq) (*api_resp.CommonResp, error)
 }
 type User struct {
 	addr      string
@@ -150,6 +154,25 @@ func (u *User) BatchEnableCompanyMembers(operationID string, accountList []strin
 	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.BatchEnableCompanyMembersPath, u.companyId), req, &resp, *u.sign)
 	if err != nil {
 		log.Error(operationID, "BatchEnableCompanyMembers err ", err.Error())
+		return nil, err
+	}
+	return &resp, nil
+}
+
+func (u *User) BatchDisableThirdMembers(operationID string, req api_req.BatchDisableThirdMembersReq) (*api_resp.CommonResp, error) {
+	resp := api_resp.CommonResp{}
+	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.BatchEnableCompanyMembersPath, u.companyId), req, &resp, *u.sign)
+	if err != nil {
+		log.Error(operationID, "BatchDisableThirdMembers err ", err.Error())
+		return nil, err
+	}
+	return &resp, nil
+}
+func (u *User) BatchEnableThirdMembers(operationID string, req api_req.BatchEnableThirdMembersReq) (*api_resp.CommonResp, error) {
+	resp := api_resp.CommonResp{}
+	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.BatchEnableCompanyMembersPath, u.companyId), req, &resp, *u.sign)
+	if err != nil {
+		log.Error(operationID, "BatchEnableThirdMembers err ", err.Error())
 		return nil, err
 	}
 	return &resp, nil

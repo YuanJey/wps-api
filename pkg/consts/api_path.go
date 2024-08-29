@@ -13,8 +13,12 @@ const (
 
 	// BatchDisableCompanyMembersPath 批量禁用企业成员
 	BatchDisableCompanyMembersPath = "/org/dev/v1/batch/companies/%s/members/disable"
+	///org/dev/v1/batch/companies/{company_id}/thirdusers/disable
+	BatchDisableThirdMembersPath = "/org/dev/v1/batch/companies/%s/thirdusers/disable"
 	// BatchEnableCompanyMembersPath 批量启用企业成员
 	BatchEnableCompanyMembersPath = "/org/dev/v1/batch/companies/%s/members/enable"
+	///org/dev/v1/batch/companies/{company_id}/thirdusers/enable
+	BatchEnableThirdMembersPath = "/org/dev/v1/batch/companies/%s/thirdusers/enable"
 
 	// UpdateThirdMemberInfoPath 根据第三方union-id修改企业成员信息
 	UpdateThirdMemberInfoPath = "/org/dev/v1/companies/%s/thirdusers?third_platform_id=%s&third_union_id=%s"
