@@ -256,7 +256,7 @@ func (u *User) getDeptUsers(operationID string, deptId string) ([]api_resp.Membe
 		//var temp []api_resp.Member
 		for i := range list.Data.DeptMembers {
 			member := api_resp.Member{}
-			if err := utils.CopyStructFields(&member, list.Data.DeptMembers[i]); err != nil {
+			if err := utils.CopyStructFields(&member, list.Data.DeptMembers[i].AccountInfo); err != nil {
 				log.Error(operationID, "CopyStructFields failed ", err.Error())
 				continue
 			}
