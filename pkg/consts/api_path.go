@@ -30,6 +30,9 @@ const (
 	GetDepartmentMembersPath     = "/org/dev/v1/companies/%s/depts/%s/members?offset=%s&limit=%s"
 	// 批量删除用户
 	DeleteBatchCompanyMembersPath = "/org/dev/v1/delete/batch/companies/%s/members"
+
+	///org/dev/v1/companies/{company_id}/depts/{dept_id}/members/{account_id}/weight
+	ChangeMemberDeptWeightPath = "/org/dev/v1/companies/%s/depts/%s/members/%s/weight"
 )
 
 const (

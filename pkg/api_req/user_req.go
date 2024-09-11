@@ -71,7 +71,11 @@ type BatchDisableThirdMembersReq struct {
 	PlatformId string   `json:"platform_id"`
 	UnionIds   []string `json:"union_ids"`
 }
+
 type BatchEnableThirdMembersReq struct {
 	PlatformId string   `json:"platform_id"`
 	UnionIds   []string `json:"union_ids"`
+}
+type ChangeMemberDeptWeightReq struct {
+	Weight int `json:"weight"`
 }
