@@ -39,6 +39,8 @@ const (
 	GetDeptInfoByThirdId = "/org/dev/v1/companies/%s/thirddepts?third_platform_id=1&third_union_id=%s"
 	// BatchGetThirdDeptListPath 根据三方union-id批量获取部门信息
 	BatchGetThirdDeptListPath = "/org/dev/v1/companies/%s/thirddepts"
+	///org/dev/v1/companies/{company_id}/depts/{dept_id}
+	GetDeptInfoPath = "/org/dev/v1/companies/%s/depts/%s"
 	// GetDeptListPath 批量获取部门信息
 	GetDeptListPath = "/org/dev/v1/companies/%s/depts"
 	// GetSubDeptListPath 获取子部门列表

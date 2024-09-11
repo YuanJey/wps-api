@@ -20,6 +20,8 @@ type ApiDept interface {
 	GetDeptInfoByThirdId(operationID string, thirdId string) (*api_resp.GetDeptResp, error)
 	// BatchGetThirdDeptList 根据三方union-id批量获取部门信息
 	BatchGetThirdDeptList(operationID string, unionIds []string) (*api_resp.GetDeptListResp, error)
+	// GetDeptInfo
+	GetDeptInfo(operationID string, deptId string) (*api_resp.GetDeptResp, error)
 	// GetDeptList 批量获取部门信息
 	GetDeptList(operationID string, deptIds []int) (*api_resp.GetDeptListResp, error)
 	// BatchCreateDept 批量创建子部门
@@ -37,6 +39,16 @@ type Dept struct {
 	addr      string
 	sign      *sign.Sign
 	companyId string
+}
+
+func (d *Dept) GetDeptInfo(operationID string, deptId string) (*api_resp.GetDeptResp, error) {
+	getDeptResp := api_resp.GetDeptResp{}
+	err := http_client.Get(operationID, fmt.Sprintf(d.addr+consts.GetDeptInfoPath, d.companyId, deptId), nil, &getDeptResp, *d.sign)
+	if err != nil {
+		log.Error(operationID, "GetDeptInfo err ", err.Error())
+		return nil, err
+	}
+	return &getDeptResp, nil
 }
 
 func NewDept(sign sign.Sign, addr string) *Dept {
@@ -97,7 +109,6 @@ func (d *Dept) BatchGetThirdDeptList(operationID string, unionIds []string) (*ap
 	}
 	return &getDeptListResp, nil
 }
-
 func (d *Dept) GetDeptList(operationID string, deptIds []int) (*api_resp.GetDeptListResp, error) {
 	GetDeptListReq := api_req.GetDeptListReq{DeptIds: deptIds}
 	getDeptListResp := api_resp.GetDeptListResp{}
