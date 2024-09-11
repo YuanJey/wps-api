@@ -5,7 +5,7 @@ type GetThirdDeptListReq struct {
 	UnionIds   []string `json:"union_ids"`
 }
 type GetDeptListReq struct {
-	DeptIds []int `json:"dept_ids"`
+	DeptIds []string `json:"dept_ids"`
 }
 type BatchCreateDeptReq struct {
 	Detps []CreateDeptInfo `json:"detps"`

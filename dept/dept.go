@@ -23,7 +23,7 @@ type ApiDept interface {
 	// GetDeptInfo
 	GetDeptInfo(operationID string, deptId string) (*api_resp.GetDeptResp, error)
 	// GetDeptList 批量获取部门信息
-	GetDeptList(operationID string, deptIds []int) (*api_resp.GetDeptListResp, error)
+	GetDeptList(operationID string, deptIds []string) (*api_resp.GetDeptListResp, error)
 	// BatchCreateDept 批量创建子部门
 	BatchCreateDept(operationID string, parentId string, deptList api_req.BatchCreateDeptReq) (*api_resp.BatchCreateDeptResp, error)
 	// GetSubDeptList 获取子部门列表
@@ -109,7 +109,7 @@ func (d *Dept) BatchGetThirdDeptList(operationID string, unionIds []string) (*ap
 	}
 	return &getDeptListResp, nil
 }
-func (d *Dept) GetDeptList(operationID string, deptIds []int) (*api_resp.GetDeptListResp, error) {
+func (d *Dept) GetDeptList(operationID string, deptIds []string) (*api_resp.GetDeptListResp, error) {
 	GetDeptListReq := api_req.GetDeptListReq{DeptIds: deptIds}
 	getDeptListResp := api_resp.GetDeptListResp{}
 	err := http_client.Post(operationID, fmt.Sprintf(d.addr+consts.GetDeptListPath, d.companyId), GetDeptListReq, &getDeptListResp, *d.sign)
