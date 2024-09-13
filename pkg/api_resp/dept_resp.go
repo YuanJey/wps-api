@@ -30,6 +30,26 @@ type GetDeptListResp struct {
 	} `json:"data"`
 }
 
+type CreateSubDeptResp struct {
+	CommonResp
+	Data struct {
+		AbsPath         string `json:"abs_path"`
+		Alias           string `json:"alias"`
+		CompanyId       string `json:"company_id"`
+		CreatorId       string `json:"creator_id"`
+		Ctime           int64  `json:"ctime"`
+		Id              string `json:"id"`
+		IdPath          string `json:"id_path"`
+		LeaderId        string `json:"leader_id"`
+		Mtime           int64  `json:"mtime"`
+		Name            string `json:"name"`
+		ParentId        string `json:"parent_id"`
+		Source          string `json:"source"`
+		ThirdPlatformId string `json:"third_platform_id"`
+		ThirdUnionId    string `json:"third_union_id"`
+		Weight          int    `json:"weight"`
+	} `json:"data"`
+}
 type BatchCreateDeptResp struct {
 	CommonResp
 	Data struct {

@@ -49,6 +49,8 @@ const (
 	// GetSubDeptListPath 获取子部门列表
 	GetSubDeptListPath = "/org/dev/v1/companies/%s/depts/%s/depts?offset=%s&limit=%s"
 
+	///org/dev/v1/companies/{company_id}/depts/{parent_id}
+	CreateSubDeptPath = "/org/dev/v1/companies/%s/depts/%s"
 	// BatchCreateDeptPath 批量创建子部门
 	BatchCreateDeptPath = "/org/dev/v1/batch/companies/%s/depts/%s"
 

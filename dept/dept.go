@@ -26,6 +26,8 @@ type ApiDept interface {
 	GetDeptList(operationID string, deptIds []string) (*api_resp.GetDeptListResp, error)
 	// BatchCreateDept 批量创建子部门
 	BatchCreateDept(operationID string, parentId string, deptList api_req.BatchCreateDeptReq) (*api_resp.BatchCreateDeptResp, error)
+	//CreateSubDept 创建子部门
+	CreateSubDept(operationID string, parentId string, deptList api_req.CreateDeptInfo) (*api_resp.CreateSubDeptResp, error)
 	// GetSubDeptList 获取子部门列表
 	GetSubDeptList(operationID string, deptId, offset, limit string) (*api_resp.GetDeptListResp, error)
 	UpdateDeptInfo(operationID string, deptId string, deptReq api_req.UpdateDeptReq) (*api_resp.CommonResp, error)
@@ -128,6 +130,16 @@ func (d *Dept) BatchCreateDept(operationID string, parentId string, deptList api
 		return nil, err
 	}
 	return &BatchCreateDeptResp, nil
+}
+
+func (d *Dept) CreateSubDept(operationID string, parentId string, dept api_req.CreateDeptInfo) (*api_resp.CreateSubDeptResp, error) {
+	createSubDeptResp := api_resp.CreateSubDeptResp{}
+	err := http_client.Post(operationID, fmt.Sprintf(d.addr+consts.CreateSubDeptPath, d.companyId, parentId), dept, &createSubDeptResp, *d.sign)
+	if err != nil {
+		log.Error(operationID, "CreateSubDept err ", err.Error())
+		return nil, err
+	}
+	return &createSubDeptResp, nil
 }
 
 func (d *Dept) GetSubDeptList(operationID string, deptId, offset, limit string) (*api_resp.GetDeptListResp, error) {
