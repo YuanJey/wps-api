@@ -36,6 +36,9 @@ const (
 
 	// GetCompanyMembersByStatusPath 根据状态获取企业成员列表
 	GetCompanyMembersByStatusPath = "/org/dev/v1/companies/%s/members/dept?status=%s&offset=%s&limit=%s"
+
+	///org/dev/v1/batch/companies/{company_id}/bind/thirdusers
+	BatchBindThirdMemberPath = "/org/dev/v1/batch/companies/%s/bind/thirdusers"
 )
 
 const (

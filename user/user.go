@@ -39,7 +39,7 @@ type ApiUser interface {
 	// ChangeCompanyMembersDept 调整企业账户的归属部门
 	ChangeCompanyMembersDept(operationID string, req api_req.ChangeCompanyMembersDeptReq) (*api_resp.CommonResp, error)
 	// GetDepartmentMembersPath 获取部门成员列表
-	GetDepartmentMembersPath(operationID string, deptId, offset, limit string) (*api_resp.GetDepartmentMembersResp, error)
+	GetDepartmentMembers(operationID string, deptId, offset, limit string) (*api_resp.GetDepartmentMembersResp, error)
 	// BatchDeleteCompanyMembersPath 批量删除用户
 	BatchDeleteCompanyMembers(operationID string, accounts []string) (*api_resp.CommonResp, error)
 	//BatchDisableThirdMembers
@@ -47,8 +47,10 @@ type ApiUser interface {
 	//BatchEnableThirdMembers
 	BatchEnableThirdMembers(operationID string, req api_req.BatchEnableThirdMembersReq) (*api_resp.CommonResp, error)
 	//ChangeMemberDeptWeightPath
-	ChangeMemberDeptWeightPath(operationID, deptId, accountId string, req api_req.ChangeMemberDeptWeightReq) (*api_resp.CommonResp, error)
-	GetCompanyMembersByStatusPath(operationID string, status, offset, limit string) (*api_resp.BatchGetCompanyMembersResp, error)
+	ChangeMemberDeptWeight(operationID, deptId, accountId string, req api_req.ChangeMemberDeptWeightReq) (*api_resp.CommonResp, error)
+	GetCompanyMembersByStatus(operationID string, status, offset, limit string) (*api_resp.BatchGetCompanyMembersResp, error)
+	//BatchBindThirdMemberPath
+	BatchBindThirdMember(operationID string, req api_req.BatchBindThirdMemberReq) (*api_resp.CommonResp, error)
 }
 type User struct {
 	addr      string
@@ -56,7 +58,17 @@ type User struct {
 	companyId string
 }
 
-func (u *User) GetCompanyMembersByStatusPath(operationID string, status, offset, limit string) (*api_resp.BatchGetCompanyMembersResp, error) {
+func (u *User) BatchBindThirdMember(operationID string, req api_req.BatchBindThirdMemberReq) (*api_resp.CommonResp, error) {
+	resp := api_resp.CommonResp{}
+	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.BatchBindThirdMemberPath, u.companyId), req, &resp, *u.sign)
+	if err != nil {
+		log.Error(operationID, "BatchBindThirdMemberPath err ", err.Error())
+		return nil, err
+	}
+	return &resp, nil
+}
+
+func (u *User) GetCompanyMembersByStatus(operationID string, status, offset, limit string) (*api_resp.BatchGetCompanyMembersResp, error) {
 	resp := api_resp.BatchGetCompanyMembersResp{}
 	err := http_client.Get(operationID, fmt.Sprintf(u.addr+consts.GetCompanyMembersByStatusPath, u.companyId, status, offset, limit), nil, &resp, *u.sign)
 	if err != nil {
@@ -66,7 +78,7 @@ func (u *User) GetCompanyMembersByStatusPath(operationID string, status, offset,
 	return &resp, nil
 }
 
-func (u *User) ChangeMemberDeptWeightPath(operationID, deptId, accountId string, req api_req.ChangeMemberDeptWeightReq) (*api_resp.CommonResp, error) {
+func (u *User) ChangeMemberDeptWeight(operationID, deptId, accountId string, req api_req.ChangeMemberDeptWeightReq) (*api_resp.CommonResp, error) {
 	resp := api_resp.CommonResp{}
 	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.ChangeMemberDeptWeightPath, u.companyId, deptId, accountId), req, &resp, *u.sign)
 	if err != nil {
@@ -76,7 +88,7 @@ func (u *User) ChangeMemberDeptWeightPath(operationID, deptId, accountId string,
 	return &resp, nil
 }
 
-func (u *User) GetDepartmentMembersPath(operationID string, deptId, offset, limit string) (*api_resp.GetDepartmentMembersResp, error) {
+func (u *User) GetDepartmentMembers(operationID string, deptId, offset, limit string) (*api_resp.GetDepartmentMembersResp, error) {
 	getMembersResp := api_resp.GetDepartmentMembersResp{}
 	err := http_client.Get(operationID, fmt.Sprintf(u.addr+consts.GetDepartmentMembersPath, u.companyId, deptId, offset, limit), nil, &getMembersResp, *u.sign)
 	if err != nil {
@@ -271,7 +283,7 @@ func (u *User) getDeptUsers(operationID string, deptId string) ([]api_resp.Membe
 	size := 1000
 	for {
 		offset := (page - 1) * size
-		list, err := u.GetDepartmentMembersPath(operationID, deptId, strconv.Itoa(offset), strconv.Itoa(size))
+		list, err := u.GetDepartmentMembers(operationID, deptId, strconv.Itoa(offset), strconv.Itoa(size))
 		if err != nil {
 			return deptList, err
 		}

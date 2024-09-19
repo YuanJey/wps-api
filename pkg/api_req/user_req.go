@@ -79,3 +79,11 @@ type BatchEnableThirdMembersReq struct {
 type ChangeMemberDeptWeightReq struct {
 	Weight int `json:"weight"`
 }
+type BatchBindThirdMemberReq struct {
+	Itmes      []BatchBindThirdMemberItem `json:"itmes"`
+	PlatformId string                     `json:"platform_id"`
+}
+type BatchBindThirdMemberItem struct {
+	AccountId string `json:"account_id"`
+	UnionId   string `json:"union_id"`
+}
