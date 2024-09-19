@@ -33,6 +33,9 @@ const (
 
 	///org/dev/v1/companies/{company_id}/depts/{dept_id}/members/{account_id}/weight
 	ChangeMemberDeptWeightPath = "/org/dev/v1/companies/%s/depts/%s/members/%s/weight"
+
+	// GetCompanyMembersByStatusPath 根据状态获取企业成员列表
+	GetCompanyMembersByStatusPath = "/org/dev/v1/companies/%s/members/dept?status=%s&offset=%s&limit=%s"
 )
 
 const (

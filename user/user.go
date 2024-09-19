@@ -48,11 +48,22 @@ type ApiUser interface {
 	BatchEnableThirdMembers(operationID string, req api_req.BatchEnableThirdMembersReq) (*api_resp.CommonResp, error)
 	//ChangeMemberDeptWeightPath
 	ChangeMemberDeptWeightPath(operationID, deptId, accountId string, req api_req.ChangeMemberDeptWeightReq) (*api_resp.CommonResp, error)
+	GetCompanyMembersByStatusPath(operationID string, status, offset, limit string) (*api_resp.BatchGetCompanyMembersResp, error)
 }
 type User struct {
 	addr      string
 	sign      *sign.Sign
 	companyId string
+}
+
+func (u *User) GetCompanyMembersByStatusPath(operationID string, status, offset, limit string) (*api_resp.BatchGetCompanyMembersResp, error) {
+	resp := api_resp.BatchGetCompanyMembersResp{}
+	err := http_client.Get(operationID, fmt.Sprintf(u.addr+consts.GetCompanyMembersByStatusPath, u.companyId, status, offset, limit), nil, &resp, *u.sign)
+	if err != nil {
+		log.Error(operationID, "GetCompanyMembersByStatusPath err ", err.Error())
+		return nil, err
+	}
+	return &resp, nil
 }
 
 func (u *User) ChangeMemberDeptWeightPath(operationID, deptId, accountId string, req api_req.ChangeMemberDeptWeightReq) (*api_resp.CommonResp, error) {
