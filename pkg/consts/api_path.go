@@ -35,7 +35,7 @@ const (
 	ChangeMemberDeptWeightPath = "/org/dev/v1/companies/%s/depts/%s/members/%s/weight"
 
 	// GetCompanyMembersByStatusPath 根据状态获取企业成员列表
-	GetCompanyMembersByStatusPath = "/org/dev/v1/companies/%s/members/dept?status=%s&offset=%s&limit=%s"
+	GetCompanyMembersByStatusPath = " /org/dev/v1/companies/%s/members?status=%s&offset=%s&limit=%s&platform_id=%s"
 
 	///org/dev/v1/batch/companies/{company_id}/bind/thirdusers
 	BatchBindThirdMemberPath = "/org/dev/v1/batch/companies/%s/bind/thirdusers"

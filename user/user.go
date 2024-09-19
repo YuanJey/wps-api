@@ -62,7 +62,7 @@ func (u *User) BatchBindThirdMember(operationID string, req api_req.BatchBindThi
 	resp := api_resp.CommonResp{}
 	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.BatchBindThirdMemberPath, u.companyId), req, &resp, *u.sign)
 	if err != nil {
-		log.Error(operationID, "BatchBindThirdMemberPath err ", err.Error())
+		log.Error(operationID, "BatchBindThirdMember err ", err.Error())
 		return nil, err
 	}
 	return &resp, nil
@@ -70,9 +70,9 @@ func (u *User) BatchBindThirdMember(operationID string, req api_req.BatchBindThi
 
 func (u *User) GetCompanyMembersByStatus(operationID string, status, offset, limit string) (*api_resp.BatchGetCompanyMembersResp, error) {
 	resp := api_resp.BatchGetCompanyMembersResp{}
-	err := http_client.Get(operationID, fmt.Sprintf(u.addr+consts.GetCompanyMembersByStatusPath, u.companyId, status, offset, limit), nil, &resp, *u.sign)
+	err := http_client.Get(operationID, fmt.Sprintf(u.addr+consts.GetCompanyMembersByStatusPath, u.companyId, status, offset, limit, config.Config.WPS.PlatformId), nil, &resp, *u.sign)
 	if err != nil {
-		log.Error(operationID, "GetCompanyMembersByStatusPath err ", err.Error())
+		log.Error(operationID, "GetCompanyMembersByStatus err ", err.Error())
 		return nil, err
 	}
 	return &resp, nil
@@ -82,7 +82,7 @@ func (u *User) ChangeMemberDeptWeight(operationID, deptId, accountId string, req
 	resp := api_resp.CommonResp{}
 	err := http_client.Post(operationID, fmt.Sprintf(u.addr+consts.ChangeMemberDeptWeightPath, u.companyId, deptId, accountId), req, &resp, *u.sign)
 	if err != nil {
-		log.Error(operationID, "ChangeMemberDeptWeightPath err ", err.Error())
+		log.Error(operationID, "ChangeMemberDeptWeight err ", err.Error())
 		return nil, err
 	}
 	return &resp, nil
@@ -92,7 +92,7 @@ func (u *User) GetDepartmentMembers(operationID string, deptId, offset, limit st
 	getMembersResp := api_resp.GetDepartmentMembersResp{}
 	err := http_client.Get(operationID, fmt.Sprintf(u.addr+consts.GetDepartmentMembersPath, u.companyId, deptId, offset, limit), nil, &getMembersResp, *u.sign)
 	if err != nil {
-		log.Error(operationID, "GetDepartmentMembersPath err ", err.Error())
+		log.Error(operationID, "GetDepartmentMembers err ", err.Error())
 		return nil, err
 	}
 	return &getMembersResp, nil
