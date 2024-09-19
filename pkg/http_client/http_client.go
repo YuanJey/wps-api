@@ -3,12 +3,12 @@ package http_client
 import (
 	"encoding/json"
 	"errors"
-	"github.com/YuanJey/wps-api/pkg/log"
-	"github.com/YuanJey/wps-api/pkg/sign"
-	"github.com/YuanJey/wps-api/pkg/utils"
 	"io"
 	"io/ioutil"
 	"net/http"
+	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/log"
+	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/sign"
+	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/utils"
 	"strings"
 	"time"
 )

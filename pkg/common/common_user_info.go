@@ -1,7 +1,7 @@
 package common
 
 import (
-	"github.com/YuanJey/wps-api/pkg/api_resp"
+	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/api_resp"
 )
 
 type User struct {

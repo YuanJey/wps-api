@@ -1,4 +1,5 @@
-module github.com/YuanJey/wps-api
+//module pl.ghgame.cn/gitea/yuanjie/wps-api
+module pl.ghgame.cn/gitea/yuanjie/wps-api
 
 go 1.22
 
