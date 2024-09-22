@@ -11,9 +11,9 @@ import (
 	"fmt"
 	elasticV7 "github.com/olivere/elastic/v7"
 	"github.com/sirupsen/logrus"
+	"github.com/yuanjie/wps-api/pkg/config"
 	"log"
 	"os"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/config"
 	"strings"
 	"time"
 )

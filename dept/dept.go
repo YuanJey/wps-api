@@ -3,12 +3,12 @@ package dept
 import (
 	"errors"
 	"fmt"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/api_req"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/api_resp"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/consts"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/http_client"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/log"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/sign"
+	"github.com/yuanjie/wps-api/pkg/api_req"
+	"github.com/yuanjie/wps-api/pkg/api_resp"
+	"github.com/yuanjie/wps-api/pkg/consts"
+	"github.com/yuanjie/wps-api/pkg/http_client"
+	"github.com/yuanjie/wps-api/pkg/log"
+	"github.com/yuanjie/wps-api/pkg/sign"
 	"reflect"
 	"strconv"
 )

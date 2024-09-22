@@ -1,12 +1,12 @@
 package wpsApi
 
 import (
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/avatar"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/dept"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/api_resp"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/config"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/sign"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/user"
+	"github.com/yuanjie/wps-api/avatar"
+	"github.com/yuanjie/wps-api/dept"
+	"github.com/yuanjie/wps-api/pkg/api_resp"
+	"github.com/yuanjie/wps-api/pkg/config"
+	"github.com/yuanjie/wps-api/pkg/sign"
+	"github.com/yuanjie/wps-api/user"
 )
 
 type AllWpsUser struct {

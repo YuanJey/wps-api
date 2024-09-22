@@ -8,7 +8,7 @@ package log
 
 import (
 	"github.com/sirupsen/logrus"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/utils"
+	"github.com/yuanjie/wps-api/pkg/utils"
 	"runtime"
 	"strings"
 )

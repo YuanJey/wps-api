@@ -1,5 +1,5 @@
-//module pl.ghgame.cn/gitea/yuanjie/wps-api
-module pl.ghgame.cn/gitea/yuanjie/wps-api
+module github.com/yuanjie/wps-api
+//module github.com/yuanjie/wps-api
 
 go 1.22
 

@@ -3,8 +3,8 @@ package log
 import (
 	"bufio"
 	"fmt"
+	"github.com/yuanjie/wps-api/pkg/config"
 	"os"
-	"pl.ghgame.cn/gitea/yuanjie/wps-api/pkg/config"
 	"time"
 
 	nested "github.com/antonfisher/nested-logrus-formatter"
