@@ -20,7 +20,7 @@ type CreateDeptInfo struct {
 
 type UpdateDeptReq struct {
 	Name   string `json:"name"`
-	Weight int    `json:"weight"`
+	Weight int    `json:"weight,omitempty"`
 }
 
 type ReThirdDeptNameReq struct {
