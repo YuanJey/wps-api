@@ -9,9 +9,9 @@ package log
 import (
 	"context"
 	"fmt"
+	"github.com/YuanJey/wps-api/pkg/config"
 	elasticV7 "github.com/olivere/elastic/v7"
 	"github.com/sirupsen/logrus"
-	"github.com/yuanjie/wps-api/pkg/config"
 	"log"
 	"os"
 	"strings"

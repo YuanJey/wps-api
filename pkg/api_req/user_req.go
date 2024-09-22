@@ -1,6 +1,6 @@
 package api_req
 
-import "github.com/yuanjie/wps-api/pkg/api_resp"
+import "github.com/YuanJey/wps-api/pkg/api_resp"
 
 type CreateCompaniesMembersReq struct {
 	Account          string                 `json:"account"`

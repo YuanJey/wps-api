@@ -4,12 +4,12 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
-	"github.com/yuanjie/wps-api/pkg/api_req"
-	"github.com/yuanjie/wps-api/pkg/api_resp"
-	"github.com/yuanjie/wps-api/pkg/consts"
-	"github.com/yuanjie/wps-api/pkg/http_client"
-	"github.com/yuanjie/wps-api/pkg/log"
-	"github.com/yuanjie/wps-api/pkg/sign"
+	"github.com/YuanJey/wps-api/pkg/api_req"
+	"github.com/YuanJey/wps-api/pkg/api_resp"
+	"github.com/YuanJey/wps-api/pkg/consts"
+	"github.com/YuanJey/wps-api/pkg/http_client"
+	"github.com/YuanJey/wps-api/pkg/log"
+	"github.com/YuanJey/wps-api/pkg/sign"
 	"reflect"
 )
 

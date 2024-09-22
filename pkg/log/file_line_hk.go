@@ -7,8 +7,8 @@
 package log
 
 import (
+	"github.com/YuanJey/wps-api/pkg/utils"
 	"github.com/sirupsen/logrus"
-	"github.com/yuanjie/wps-api/pkg/utils"
 	"runtime"
 	"strings"
 )

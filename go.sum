@@ -42,3 +42,5 @@ gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8
 gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
 gopkg.in/yaml.v3 v3.0.0-20220521103104-8f96da9f5d5e h1:3i3ny04XV6HbZ2N1oIBw1UBYATHAOpo4tfTF83JM3Z0=
 gopkg.in/yaml.v3 v3.0.0-20220521103104-8f96da9f5d5e/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
+pl.ghgame.cn/gitea/yuanjie/wps-api v1.2.7 h1:5SNhOnDYE1nWipJ/91M5pMjDsCZlHfLvffkn2n6+CTA=
+pl.ghgame.cn/gitea/yuanjie/wps-api v1.2.7/go.mod h1:SkOi81l+i1fQp7NN9CbWo+Js7vFj2IzBZtQBuiNPNzM=

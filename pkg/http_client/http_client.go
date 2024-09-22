@@ -3,9 +3,9 @@ package http_client
 import (
 	"encoding/json"
 	"errors"
-	"github.com/yuanjie/wps-api/pkg/log"
-	"github.com/yuanjie/wps-api/pkg/sign"
-	"github.com/yuanjie/wps-api/pkg/utils"
+	"github.com/YuanJey/wps-api/pkg/log"
+	"github.com/YuanJey/wps-api/pkg/sign"
+	"github.com/YuanJey/wps-api/pkg/utils"
 	"io"
 	"io/ioutil"
 	"net/http"

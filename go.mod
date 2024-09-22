@@ -1,5 +1,5 @@
-module github.com/yuanjie/wps-api
-//module github.com/yuanjie/wps-api
+module github.com/YuanJey/wps-api
+//module github.com/YuanJey/wps-api
 
 go 1.22
 
